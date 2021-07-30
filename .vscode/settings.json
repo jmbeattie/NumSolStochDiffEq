@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "deque": "cpp",
+        "cmath": "cpp",
+        "xtree": "cpp",
+        "utility": "cpp"
+    }
+}
