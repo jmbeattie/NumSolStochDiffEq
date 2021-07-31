@@ -2,12 +2,13 @@
 #include <iostream>
 #include <math.h>
 #include <map>
+#include "StatsVector.cpp"
 
 using namespace std;
 
 #define DEFAULT_SEED 42
 
-deque<uint32_t> congruentialRNG(uint32_t a, uint32_t b, uint32_t c, uint32_t n, uint32_t x);
+StatsVector congruentialRNG(uint32_t a, uint32_t b, uint32_t c, uint32_t n, uint32_t x);
 deque<double> rdn(int n, int x = DEFAULT_SEED);
 deque<int> sample(int n, deque<double> prob = {0.5}, int x = DEFAULT_SEED);
 template <class numeric>
@@ -34,9 +35,9 @@ int main(int argc, char **argv)
 }
 
 
-deque<uint32_t> congruentialRNG(uint32_t a, uint32_t b, uint32_t c, uint32_t n, uint32_t seed)
+StatsVector congruentialRNG(uint32_t a, uint32_t b, uint32_t c, uint32_t n, uint32_t seed)
 {
-    deque<uint32_t> CRNGStream (1, seed);
+    StatsVector CRNGStream (1, seed);
     for(int i = 1; i < n; i++) //the zeroth entry is the seed
     {
         uint32_t nextElement = ((a*CRNGStream.front())+b) % c;
